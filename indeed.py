@@ -17,10 +17,10 @@ def get_last_page():
 
 
 def extract_job(html):
-  # Jobs' title
+  # Indeed's job title
   title = html.find("h2", {"class": "jobTitle"}).find("span", title=True).string
 
-  # Jobs' company
+  # Indeed's job company
   company = html.find("span", {"class": "companyName"})
   company_anchor = company.find("a")
   if company_anchor is not None:
@@ -29,10 +29,10 @@ def extract_job(html):
     company = str(company.string)
   company = company.strip()
 
-  # Jobs' location
+  # Indeed's job location
   location = html.find("div", {"class": "companyLocation"}).text
 
-  # Jobs' ID
+  # Indeed's job ID
   job_id = html["data-jk"]
   return {
     'title': title, 
