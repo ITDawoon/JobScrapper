@@ -12,8 +12,8 @@ def get_last_page():
 
 
 def extract_job(html):
-  title = html.find("div", {"class": "flex--item fl1"}).find("h2").find("a")["title"]
-  company, location = html.find("h3", {"class":"fc-black-700 fs-body1 mb4"}).find_all("span", recursive = False)
+  title = html.find("h2").find("a")["title"]
+  company, location = html.find("h3").find_all("span", recursive = False)
   company = company.get_text(strip = True)
   location = location.get_text(strip = True)
   job_id = html['data-jobid']
